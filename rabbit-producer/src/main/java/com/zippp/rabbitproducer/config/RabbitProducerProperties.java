@@ -40,7 +40,6 @@ import java.time.Duration;
 public record RabbitProducerProperties(
 
         @NotNull
-        @Min(0)
         Duration replyTimeout
 
 ) {
