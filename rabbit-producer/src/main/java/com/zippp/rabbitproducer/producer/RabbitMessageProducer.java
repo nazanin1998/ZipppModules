@@ -11,7 +11,6 @@ import org.springframework.amqp.AmqpException;
 import org.springframework.amqp.core.MessagePostProcessor;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.core.ParameterizedTypeReference;
-import org.springframework.stereotype.Component;
 
 import java.util.Map;
 import java.util.UUID;
@@ -43,7 +42,6 @@ import java.util.UUID;
  * </ul>
  */
 
-@Component
 public class RabbitMessageProducer implements MessageProducer {
 
     private static final Logger log = LoggerFactory.getLogger(RabbitMessageProducer.class);

@@ -34,3 +34,4 @@ build/
 /.gitattributes
 /mvnw
 /mvnw.cmd
+/.mvn/
