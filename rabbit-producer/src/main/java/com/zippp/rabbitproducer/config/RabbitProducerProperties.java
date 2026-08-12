@@ -12,7 +12,7 @@ import java.time.Duration;
  * {@code zippp.rabbit.*} namespace in the target project's {@code application.yml}.
  *
  * <p>Activated by the starter's
- * {@link RabbitConfig @AutoConfiguration} class via
+ * {@link RabbitProducerConfig @AutoConfiguration} class via
  * {@link org.springframework.boot.context.properties.EnableConfigurationProperties}.
  * The class is registered with the container only when the starter is on the
  * classpath, so target projects that don't include the starter are unaffected.

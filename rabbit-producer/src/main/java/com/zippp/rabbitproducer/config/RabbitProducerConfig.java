@@ -47,7 +47,7 @@ import java.time.Duration;
 @ConditionalOnClass(RabbitTemplate.class)
 @ConditionalOnProperty(prefix = "zippp.producer.rabbit", name = "enabled", havingValue = "true", matchIfMissing = true)
 @EnableConfigurationProperties(RabbitProducerProperties.class)
-public class RabbitConfig {
+public class RabbitProducerConfig {
 
     /** Default reply timeout for {@code sendAndReceive} when the target project omits
      *  the {@code zippp.rabbit.reply-timeout} property. */
