@@ -12,6 +12,7 @@ import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
+import tools.jackson.databind.json.JsonMapper;
 
 import java.time.Duration;
 
@@ -54,8 +55,14 @@ public class RabbitConfig {
 
     @Bean
     @ConditionalOnMissingBean
-    public MessageConverter jsonMessageConverter() {
-        return new JacksonJsonMessageConverter();
+    public JsonMapper jsonMapper() {
+        return JsonMapper.builder().findAndAddModules().build();
+    }
+
+    @Bean
+    @ConditionalOnMissingBean
+    public MessageConverter jsonMessageConverter(JsonMapper jsonMapper) {
+        return new JacksonJsonMessageConverter(jsonMapper);
     }
 
     @Bean
