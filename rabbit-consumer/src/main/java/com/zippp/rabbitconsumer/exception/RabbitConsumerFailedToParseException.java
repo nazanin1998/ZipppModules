@@ -8,8 +8,8 @@ package com.zippp.rabbitconsumer.exception;
  *   <li>waiting for a first message on a freshly-subscribed queue.</li>
  * </ul>
  */
-public class RabbitConsumerTimeoutException extends RabbitConsumerException {
-    public RabbitConsumerTimeoutException() {
-        super("rabbit_consumer_timeout");
+public class RabbitConsumerFailedToParseException extends RabbitConsumerException {
+    public RabbitConsumerFailedToParseException(Throwable cause) {
+        super("rabbit_consumer_parse_failed", cause);
     }
 }
