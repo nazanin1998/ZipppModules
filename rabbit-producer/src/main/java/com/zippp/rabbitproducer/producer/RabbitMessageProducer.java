@@ -117,8 +117,8 @@ public class RabbitMessageProducer implements MessageProducer {
         String payloadType = payload.getClass().getName();
         MDC.put(MDC_MESSAGE_ID, messageId);
         try {
-            log.debug("(RABBIT-PRODUCER) - starting send: exchange={}, routingKey={}, payloadType={}",
-                    exchange, routingKey, payloadType);
+            log.debug("(RABBIT-PRODUCER) - starting send: exchange={}, routingKey={}, payloadType={}, messageId={}",
+                    exchange, routingKey, payloadType, messageId);
 
             rabbitTemplate.convertAndSend(exchange, routingKey, payload, postProcessor);
 
@@ -142,8 +142,8 @@ public class RabbitMessageProducer implements MessageProducer {
         String payloadType = payload.getClass().getName();
         MDC.put(MDC_MESSAGE_ID, messageId);
         try {
-            log.debug("(RABBIT-PRODUCER) - starting sendAndReceive: exchange={}, routingKey={}, payloadType={}, responseType={}",
-                    exchange, routingKey, payloadType, responseType.getType());
+            log.debug("(RABBIT-PRODUCER) - starting sendAndReceive: exchange={}, routingKey={}, payloadType={}, responseType={}, messageId={}",
+                    exchange, routingKey, payloadType, responseType.getType(), messageId);
 
             R reply = rabbitTemplate.convertSendAndReceiveAsType(exchange, routingKey, payload,
                     postProcessor, responseType);
