@@ -24,7 +24,7 @@ public class MessageParser {
     /** AMQP header carrying the per-request correlation id. */
     public static final String CORRELATION_HEADER = "x-message-id";
 
-    public <T> ConsumerParsedMessage<T> parsedMessage(Message amqpMessage, Class<T> resClass, JsonMapper jsonMapper) {
+    public static <T> ConsumerParsedMessage<T> parsedMessage(Message amqpMessage, Class<T> resClass, JsonMapper jsonMapper) {
         String correlationId = extractCorrelationId(amqpMessage);
 
         T payload;
@@ -40,7 +40,7 @@ public class MessageParser {
         return new ConsumerParsedMessage<>(correlationId, payload);
     }
 
-    private String extractCorrelationId(Message amqpMessage) {
+    private static String extractCorrelationId(Message amqpMessage) {
         Object headerValue = amqpMessage.getMessageProperties().getHeader(CORRELATION_HEADER);
         if (headerValue == null) {
             log.warn("Missing {} header on signup request — generating fallback id",
